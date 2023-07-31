@@ -1,15 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-/* - Soft orange: hsl(35, 77%, 62%)
-- Soft red: hsl(5, 85%, 63%)
-
-### Neutral
-
-Off-white: hsl(36, 100%, 99%)
-Grayish blue: hsl(233, 8%, 79%)
-Dark grayish blue: hsl(236, 13%, 42%)
-Very dark blue: hsl(240, 100%, 5%) */
-
 * {
     padding: 0;
     margin: 0;
@@ -21,10 +11,11 @@ body {
     padding: 1.2rem;
     font-family: "Inter", sans-serif;
     background-color: hsl(36, 100%, 99%);
-    overflow-x: scroll;
 }
 
-.header {
+/* start of header and nav bar */
+
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,38 +24,89 @@ body {
 
 .w-logo {
     height: 2rem;
-    width: auto;
 }
 
-.menu-button {
-    height: 1.3rem;
-    width: 3rem;
+#menuButton {
+    background-color: hsl(36, 100%, 99%);
+    border: none;
+    cursor: pointer;
 }
 
-.nav-list {
-    display: none;
+header div {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0;
+    z-index: -99;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in-out;
 }
 
-.grid-container {}
+header div nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 70vw;
+    z-index: 99;
+    background-color: hsl(36, 100%, 99%);
+}
 
-.blocks-image-mobile {
+.nav-div-open {
+    opacity: 1;
+    z-index: 99;
+}
+
+#closeButton {
+    background-color: hsl(36, 100%, 99%);
+    border: none;
+    outline: none;
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+}
+
+header div nav ul {
+    list-style-type: none;
+    position: fixed;
+    top: 25%;
+    left: 37%;
+    line-height: 3.5rem;
+}
+
+header div nav ul li {
+    cursor: pointer;
+    color: hsl(240, 100%, 5%);
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+header div nav ul li:hover {
+    color: hsl(5, 85%, 63%)
+}
+
+/* start of main container layout */
+
+.blocks-image-div picture img {
     width: 100%;
-    max-width: 400px;
     height: auto;
 }
 
-.blocks-image-desktop {
-    display: none
-}
-
-.bright-heading {
+.bright-div h1 {
+    color: hsl(240, 100%, 5%);
     font-weight: 900;
     font-size: 2.5rem;
     margin: 1rem 0;
-    line-height: 2.5rem;
+    line-height: 3rem;
 }
 
-.para-1 {
+.article-1 p {
     color: hsl(236, 13%, 42%);
     font-size: 1rem;
     font-weight: 500;
@@ -72,7 +114,7 @@ body {
     margin-bottom: 1.4rem;
 }
 
-.read-more-button {
+.article-1 button {
     width: 12rem;
     max-width: 100%;
     height: 2.9rem;
@@ -85,148 +127,166 @@ body {
     margin-bottom: 3rem;
 }
 
-.read-more-button:hover {
-    background-color: black;
+.article-1 button:hover {
+    background-color: hsl(240, 100%, 5%);
     cursor: pointer
 }
 
-.section-2-div {
+.article-2 {
     background-color: hsl(240, 100%, 5%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 30rem;
     padding: 1.5rem 1.1rem;
-    margin: auto;
     margin-bottom: 4rem;
 }
 
-.line {
-    background-color: hsl(233, 8%, 79%);
-    width: 100%;
-    height: .8px;
-}
-
-.section-2-heading {
+.article-2 h1 {
     color: hsl(35, 77%, 62%)
 }
 
-.block {
+.article-2 div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 5rem
 }
 
-.block-head {
+.article-2 h3 {
     color: white
 }
 
-.block-head:hover {
+.article-2 h3:hover {
     color: hsl(35, 77%, 62%);
     cursor: pointer
 }
 
-.block-para {
+.article-2 p {
     color: hsl(233, 8%, 79%);
     line-height: 1.5rem
 }
+
+.article-2 span {
+    display: block;
+    background-color: hsl(233, 8%, 79%);
+    width: 100%;
+    height: .8px;
+    opacity: .5;
+}
+
+/* start of lower section */
 
 .lower-section {
     display: grid;
     grid-template-columns: repeat(auto-fill, 340px)
 }
 
-.article {
+.lower-section article {
     display: flex;
-    width: 100%;
     margin-bottom: 2rem
 }
 
-.lower-img {
+.lower-section article img {
     width: 7rem;
 }
 
-.article-right {
+.lower-section article div {
     margin-left: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-bottom: .5rem;
+    padding-bottom: .2rem;
     max-width: 200px;
 }
 
-.num {
+.lower-section article div h1 {
     color: hsl(233, 8%, 79%);
 }
 
-.small-heading {
+.lower-section article div h3 {
     font-weight: 900;
 }
 
-.small-heading:hover {
-    color:hsl(5, 85%, 63%);
+.lower-section article div h3:hover {
+    color: hsl(5, 85%, 63%);
     cursor: pointer
 }
 
-.small-para {
+.lower-section article div p {
     line-height: 1.5rem;
     color: hsl(236, 13%, 42%);
     font-weight: 500;
 }
 
-@media only screen and (min-width:800px) {
-    * {
-        padding: 0;
-        margin: 0
-    }
+/* start of desktop view */
+
+@media only screen and (min-width:1000px) {
 
     body {
         padding: 3rem 10vw 1rem;
     }
 
+    /* start of header and nav bar  */
+
     .header {
         margin-bottom: 3rem;
-        justify-content: space-between;
     }
 
-    .nav-list {
+    #menuButton img {
+        display: none;
+        z-index: -99;
+    }
+
+    header div {
         display: flex;
-        justify-content: space-between;
-        min-width: 30rem;
-        font-size: .9rem;
+        position: relative;
+        background-color: hsl(36, 100%, 99%);
+        height: 2rem;
+        width: 40%;
+        opacity: 1;
+        transition: none;
+        z-index: 100;
     }
 
-    .menu-button {
+    #closeButton {
         display: none;
     }
 
-    li {
-        list-style-type: none;
+    header div nav {
+        display: flex;
+        position: relative;
+        height: 2rem;
+        width: 100;
+        z-index: 0;
+        background-color: none;
     }
 
-    .nav-link {
-        text-decoration: none;
-        color: hsl(236, 13%, 42%)
+    header div nav ul {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        font-size: .9rem;
+        align-items: center;
     }
 
-    .nav-link:hover {
+    header div nav ul li {
+        cursor: pointer;
+        font-weight: 500;
+        font-size: .9rem;
+        color: hsl(236, 13%, 42%);
+    }
+
+    header div nav ul li:hover {
         color: hsl(5, 85%, 63%)
     }
 
-    .blocks-image-mobile {
-        display: none
-    }
+    /* grid container start */
 
-    .blocks-image-desktop {
-        display: block;
-        max-width: 100%;
-        max-height: 100%;
-    }
-
-    /* container grid start */
-
-    .grid-container {
+    main {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
@@ -236,68 +296,21 @@ body {
             "bright paragraph side"
             "btm btm btm"
         ;
-        /* border: 1px solid red; */
         width: auto;
-        max-height: 90vh;
+        max-height: 100vh;
         margin-bottom: 10px;
     }
 
     .blocks-image-div {
         grid-area: image;
-        padding: 0;
-        margin: 0;
         min-width: none;
     }
 
     .bright-div {
         grid-area: bright;
-        padding: 0;
-        margin: 0;
     }
 
-    .heading-1 {
-        width: 100%
-    }
-
-    .section-1-div {
-        grid-area: paragraph;
-        padding: 0;
-        margin: 0;
-        min-width: none;
-        max-width: none;
-    }
-
-    .section-2-div {
-        grid-area: side;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        min-width: 0;
-        min-height: 0;
-    }
-
-    .block {}
-
-    .block-head {
-        font-size: 1rem;
-    }
-
-    .block-para {
-        font-size: .7rem;
-    }
-
-    .lower-section {
-        grid-area: btm;
-        display: flex;
-        justify-content: space-between;
-        max-height: 9rem;
-        gap: 24px;
-        padding: 1.5rem 0 0 0;
-        margin: 0;
-        /* border: 1px solid pink; */
-    }
-
-    .bright-heading {
+    .bright-div h1 {
         font-weight: 800;
         font-size: 2.7rem;
         padding-left: .5rem;
@@ -306,53 +319,74 @@ body {
         line-height: 3rem;
     }
 
-    .para-1 {
-        font-size: .85rem;
-        font-weight: 500;
-        line-height: 1.5rem;
-        margin-bottom: 1.4rem;
+    .article-1 {
+        grid-area: paragraph;
+        padding: 0;
+        margin: 0;
+        min-width: none;
+        max-width: none;
     }
 
-    .read-more-button {
+    .article-1 button {
         width: 9rem;
         height: 2.5rem;
         font-size: .6rem;
         margin-bottom: 0rem;
     }
 
-    .article {
+    .article-2 {
+        grid-area: side;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        min-height: 0;
+    }
+
+    .article-2 div h3 {
+        font-size: 1rem;
+    }
+
+    .article-2 div p {
+        font-size: .8rem;
+    }
+
+    /* start of lower section */
+
+    .lower-section {
+        grid-area: btm;
         display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 1.5rem 0 0 0;
+        margin: 0;
+        padding-bottom: 3rem;
+    }
+
+    .lower-section article {
         margin: 0;
         padding: 0
     }
 
-    .article-right {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .num {
+    .lower-section h1 {
         font-size: 1.4rem;
     }
 
-    .small-heading {
-        font-weight: 900;
+    .lower-section h3 {
         font-size: .9rem;
     }
 
-    .small-para {
+    .lower-section p {
         line-height: 1rem;
-        color: hsl(236, 13%, 42%);
-        font-weight: 500;
         font-size: .7rem;
     }
+}
 
-    /* div {
-    border:2px solid blue;
-    width: none;
-    height: none;
-    max-width: none;
-    min-width: none;
-} */
+/* make lower section articles align into 1 collumn or very small screen */
+
+@media only screen and (max-width:360px) {
+    .lower-section article {
+        flex-direction: column;
+        align-items: center;
+        max-width: 50%;
+    }
 }
